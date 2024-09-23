@@ -1,0 +1,1 @@
+An Flask webapp which users can use to log their tasks and have them be displayed to them in a nice and easy manner 

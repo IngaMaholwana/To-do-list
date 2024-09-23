@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ user[1] }}'s Profile{% endblock %}
+
+{% block content %}
+<h2>Welcome, {{ user[1] }}!</h2>
+
+<h3>Your Tasks:</h3>
+<ul>
+    {% for task in tasks %}
+    <li>
+        <strong>{{ task[2] }}</strong> - {{ task[3] }}
+        <br>
+        <em>Priority: {{ task[4] }} | Due: {{ task[5] }} | Status: {{ task[6] }}</em>
+    </li>
+    {% else %}
+    <li>No tasks found.</li>
+    {% endfor %}
+</ul>
+
+<h3>Add New Task:</h3>
+<form method="POST" action="/add_task">
+    <input type="hidden" name="user_id" value="{{ user[0] }}">
+    <input type="hidden" name="username" value="{{ user[1] }}">
+    <label>Title:</label>
+    <input type="text" name="title" required>
+    <label>Description:</label>
+    <textarea name="description"></textarea>
+    <label>Priority (1-4):</label>
+    <input type="number" name="priority" min="1" max="4" required>
+    <label>Due Date:</label>
+    <input type="date" name="due_date">
+    <button type="submit">Add Task</button>
+</form>
+{% endblock %}

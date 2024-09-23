@@ -1,0 +1,1 @@
+Will need to pip install Flask if want to  make any life improvements to the code, also render_template, request, redirect, url_for
