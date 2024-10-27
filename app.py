@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, session, render_template, request, redirect, url_for
 import sqlite3
+import sqlalchemy
 from make_database import query_db, insert_db, init_db
 
 app = Flask(__name__)
+
 
 # Initialize the database
 with app.app_context():
